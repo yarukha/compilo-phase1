@@ -1,0 +1,9 @@
+compileLib/compileLib.a filter=lfs diff=lfs merge=lfs -text
+compileLib/compileLib.cmi filter=lfs diff=lfs merge=lfs -text
+compileLib/compileLib__.cmi filter=lfs diff=lfs merge=lfs -text
+compileLib/compileLib__C_AST.cmi filter=lfs diff=lfs merge=lfs -text
+compileLib/compileLib__Runner.cmi filter=lfs diff=lfs merge=lfs -text
+compileLib/compileLib.cmxa filter=lfs diff=lfs merge=lfs -text
+*.o filter=lfs diff=lfs merge=lfs -text
+*.cmi filter=lfs diff=lfs merge=lfs -text
+*.cmx filter=lfs diff=lfs merge=lfs -text

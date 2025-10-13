@@ -1,0 +1,4 @@
+S bin
+S lib
+B _build/bin
+B _build/lib

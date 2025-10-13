@@ -1,0 +1,9 @@
+(library
+ (name compiler)
+ (libraries compileLib)
+ (modules typechecker compiler))
+
+(executable
+ (name minic)
+ (libraries compiler)
+ (modules minic))
