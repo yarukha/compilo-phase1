@@ -14,7 +14,11 @@ then
        echo "experimental-features = nix-command flakes"
        exit 1
     fi
-    exec nix shell ${NIX_PKGS}
+    if [[ $# -gt 0 ]]; then
+        exec nix shell ${NIX_PKGS} --command bash -c "$*"
+    else
+        exec nix shell ${NIX_PKGS}
+    fi
 fi
 
 if [[ ! $(hostname) =~ ^[0-9][0-9]$ ]]
@@ -52,5 +56,15 @@ then
     chmod +x "${NIX_FOLDER}/nix-portable"
 fi
 
-echo "Starting Nix shell"
-exec bash -c "NP_GIT=$(which git) NP_LOCATION=${NIX_FOLDER} ${NIX_FOLDER}/nix-portable nix shell ${NIX_PKGS}"
+
+if [[ $# -gt 0 ]]; then
+    # Exécuter une commande passée en argument
+    exec env NP_GIT="$(which git)" NP_LOCATION="${NIX_FOLDER}" \
+        "${NIX_FOLDER}/nix-portable" nix shell ${NIX_PKGS} \
+        --command bash -c "$*"
+else
+    # Shell interactif
+    exec env NP_GIT="$(which git)" NP_LOCATION="${NIX_FOLDER}" \
+        "${NIX_FOLDER}/nix-portable" nix shell ${NIX_PKGS}
+fi
+
