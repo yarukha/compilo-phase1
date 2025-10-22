@@ -57,6 +57,10 @@ then
 fi
 
 
+export HOME="/dev/shm/$(whoami)/home"
+mkdir -p "$HOME"
+
+
 if [[ $# -gt 0 ]]; then
     # Exécuter une commande passée en argument
     exec env NP_GIT="$(which git)" NP_LOCATION="${NIX_FOLDER}" \
