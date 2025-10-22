@@ -45,7 +45,7 @@ then
     NIX_FOLDER="${HOME}/.nix-portable"
 fi
 
-NIX_PKGS="${NIX_PREFIX}.ocaml"
+# NIX_PKGS="${NIX_PREFIX}.ocaml"
 
 if [[ ! -f ${NIX_FOLDER}/nix-portable ]]
 then
